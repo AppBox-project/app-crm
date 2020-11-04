@@ -1,5 +1,5 @@
 import FourOhFour from "../../Components/FourOhFour";
-import { FaDashcube, FaPeopleCarry } from "react-icons/fa";
+import { FaDashcube, FaPeopleCarry, FaUserTie } from "react-icons/fa";
 import Objects from "./Objects";
 
 export default class App {
@@ -29,6 +29,12 @@ export default class App {
           label: "Products",
           component: Objects,
           icon: FaPeopleCarry,
+        },
+        {
+          key: "customers",
+          label: "Customers",
+          component: Objects,
+          icon: FaUserTie,
         },
       ]);
     });

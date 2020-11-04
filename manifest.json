@@ -1,5 +1,14 @@
 {
   "name": "CRM",
-  "color": { "r": 0, "g": 133, "b": 182 },
-  "icon": "FaHive"
+  "color": { "r": 85, "g": 122, "b": 149 },
+  "icon": "FaSignal",
+  "installation": {
+    "fields": {
+      "variant": {
+        "label": "Variant",
+        "type": "options",
+        "options": [{ "label": "Store", "value": "store" }]
+      }
+    }
+  }
 }
