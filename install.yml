@@ -1,7 +1,7 @@
 # Version logic
 versions:
   - criteria:
-      - variant: store
+      variant: store
     script: store-script
 
 # Install scripts
@@ -11,15 +11,15 @@ store-script:
     name: Store CRM
     icon: FaCashRegister
     color:
-      - r: 0
-      - g: 144
-      - b: 227
+      r: 0
+      g: 144
+      b: 227
   steps:
-    - createModel:
-        required: true
-        locked: false
-        model: crm-products
-    - registerApp:
+    - action: createModel
+      required: true
+      locked: false
+      model: crm-products
+    - registerApp
 
 # Data to load into the system
 data:
@@ -37,6 +37,10 @@ data:
           name: Name
           required: true
           type: input
+        description:
+          name: Description
+          required: true
+          type: richtext
         quantity:
           name: Quantity
           type: input
@@ -44,7 +48,7 @@ data:
             type: number
           default: 1
         picture:
-          name: picture
+          name: Picture
           type: picture
         price:
           name: Price
@@ -107,44 +111,96 @@ data:
           layout:
             - type: AnimationContainer
               xs: 12
-              id: kf6wq7bt
+              id: khasxdr6
               items:
-                - type: AnimationItem
+                - type: GridContainer
                   xs: 12
-                  id: kf6wq937
+                  id: khasxj8n
                   items:
-                    - type: Paper
+                    - type: GridItem
                       xs: 12
-                      id: kf6wqc5g
-                      title: App
-                      withBigMargin: true
+                      id: khasxngg
+                      md: 9
+                      key: default
                       items:
-                        - type: FieldGrid
+                        - type: AnimationItem
                           xs: 12
-                          id: kf6wqogg
-                          title: App
-                          layout:
-                            - id: kf6wqqjr
-                              name: Info
-                              columns: 1
-                              showTitle: true
-                              defaultExpanded: true
+                          id: khasxum6
+                          items:
+                            - type: Paper
+                              xs: 12
+                              id: khasxx1k
+                              title: Product
+                              withBigMargin: true
+                              key: default
+                              md: 9
                               items:
-                                - name
-                                - id
-                                - permission___view
-                                - widgets
-                            - id: kf6wr5az
-                              name: Settings
-                              columns: 2
-                              showTitle: true
-                              defaultExpanded: false
-                              items:
-                                - color
-                                - core
-                                - root
-                                - mobileSettings
-                                - icon
-                          withBigMargin: true
+                                - type: Field
+                                  xs: 12
+                                  id: khato1rq
+                                  field: name
+                                  displayfields: people,price,paid
+                                - type: Field
+                                  xs: 12
+                                  id: khato3q3
+                                  field: description
+                                  displayfields: people,price,paid
+                                - type: Field
+                                  xs: 12
+                                  id: khato4v9
+                                  field: quantity
+                                  displayfields: people,price,paid
+                                - type: Field
+                                  xs: 12
+                                  id: khato67v
+                                  field: picture
+                                  hideView: true
+                                  displayfields: people,price,paid
+                                - type: Field
+                                  xs: 12
+                                  id: khatok9q
+                                  field: price
+                                  hideView: true
+                                  displayfields: people,price,paid
+                                - type: Field
+                                  xs: 12
+                                  id: khatopd3
+                                  field: price
+                                  displayfields: people,price,paid
+                    - type: GridItem
+                      xs: 12
+                      id: khasy8dc
+                      md: 3
+                      key: default
+                      withBigMargin: true
+                      title: Product
+                      items:
+                        - type: AnimationItem
+                          xs: 12
+                          id: khasydf2
+                          items:
+                            - type: RelatedList
+                              xs: 12
+                              id: khasymfk
+                              title: Sales
+                              object: crm-sales
+                              field: crm-products
+                              displayfields: people,price,paid
+                              valueCopyFields: price=price
+                              onlyVisibleWithResults: false
+                              displayCard: true
+                              withBigMargin: true
+                              addButton: true
+                              key: default
+                              md: 3
+          buttons:
+            - delete
+            - clone
+            - archive
+          factsBar:
+            - picture
+            - name
+            - available
+            - sold
 
   objects:
