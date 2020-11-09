@@ -1,7 +1,6 @@
 # Version logic
 versions:
-  store:
-    criteria:
+  - criteria:
       - variant: store
     script: store-script
 
