@@ -1,0 +1,151 @@
+# Version logic
+versions:
+  store:
+    criteria:
+      - variant: store
+    script: store-script
+
+# Install scripts
+## Store
+store-script:
+  info:
+    name: Store CRM
+    icon: FaCashRegister
+    color:
+      - r: 0
+      - g: 144
+      - b: 227
+  steps:
+    - createModel:
+        required: true
+        locked: false
+        model: crm-products
+    - registerApp:
+
+# Data to load into the system
+data:
+  models:
+    # Base product model
+    crm-products:
+      name: Product
+      name_plural: Products
+      app: crm
+      icon: FaPeopleCarry
+      indexed: true
+      primary: name
+      fields:
+        name:
+          name: Name
+          required: true
+          type: input
+        quantity:
+          name: Quantity
+          type: input
+          typeArgs:
+            type: number
+          default: 1
+        picture:
+          name: picture
+          type: picture
+        price:
+          name: Price
+          type: input
+          typeArgs:
+            type: number
+            numberType: currency
+        sold:
+          name: Sold
+          type: formula
+          typeArgs:
+            type: number
+            formula: >-
+              {{ count_related('crm-sales','crm-products',[{"field":"paid","operator":"equals","value":true}]) }}
+        available:
+          name: Available
+          type: formula
+          typeArgs:
+            formula: >-
+              {{ math("{quantity} - {sold}") }}
+            type: number
+      preview:
+        enabled: true
+        fields:
+          - name
+      permissions:
+        read:
+          - known
+        create:
+          - known
+        modifyOwn:
+          - known
+        write:
+          - known
+        delete:
+          - known
+        deleteOwn:
+          - known
+        archive:
+          - known
+        archiveOwn:
+          - known
+      actions:
+        create:
+          layout: create
+          type: create
+      overviews:
+        default:
+          fields:
+            - picture
+            - name
+            - description
+            - available
+          buttons:
+            - create
+          actions:
+            - delete
+      layouts:
+        default:
+          layout:
+            - type: AnimationContainer
+              xs: 12
+              id: kf6wq7bt
+              items:
+                - type: AnimationItem
+                  xs: 12
+                  id: kf6wq937
+                  items:
+                    - type: Paper
+                      xs: 12
+                      id: kf6wqc5g
+                      title: App
+                      withBigMargin: true
+                      items:
+                        - type: FieldGrid
+                          xs: 12
+                          id: kf6wqogg
+                          title: App
+                          layout:
+                            - id: kf6wqqjr
+                              name: Info
+                              columns: 1
+                              showTitle: true
+                              defaultExpanded: true
+                              items:
+                                - name
+                                - id
+                                - permission___view
+                                - widgets
+                            - id: kf6wr5az
+                              name: Settings
+                              columns: 2
+                              showTitle: true
+                              defaultExpanded: false
+                              items:
+                                - color
+                                - core
+                                - root
+                                - mobileSettings
+                                - icon
+                          withBigMargin: true
+
+  objects:
