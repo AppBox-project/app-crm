@@ -11,9 +11,9 @@ store-script:
     name: Store CRM
     icon: FaCashRegister
     color:
-      r: 0
-      g: 144
-      b: 227
+      r: 4
+      g: 102
+      b: 201
   steps:
     - action: createModel
       required: true
@@ -88,6 +88,8 @@ data:
         fields:
           - name
         picture: picture
+      handlers:
+        crm: /crm/products/{object:_id}
       permissions:
         read:
           - known
@@ -236,6 +238,8 @@ data:
           - person
           - price
         enabled: true
+      handlers:
+        crm: /crm/orders/{object:_id}
       permissions:
         read:
           - known

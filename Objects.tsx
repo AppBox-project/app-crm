@@ -4,6 +4,7 @@ import { AppContextType } from "../../Utils/Types";
 const objectSettingsMap = {
   products: { modelId: "crm-products" },
   customers: { modelId: "people" },
+  orders: { modelId: "crm-orders" },
 };
 
 const AppActionObject: React.FC<{ action; context: AppContextType }> = ({
