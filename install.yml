@@ -19,6 +19,15 @@ store-script:
       required: true
       locked: false
       model: crm-products
+    - action: registerSystemValues
+      values:
+        people:
+          types:
+            - label: Customer
+              key: customer
+            - label: Supplier
+              key: supplier
+  post-install:
     - registerApp
 
 # Data to load into the system
@@ -62,7 +71,7 @@ data:
           typeArgs:
             type: number
             formula: >-
-              {{ count_related('crm-sales','crm-products',[{"field":"paid","operator":"equals","value":true}]) }}
+              {{ count_related('crm-orders','products',[{"field":"paid","operator":"equals","value":true}]) }}
         available:
           name: Available
           type: formula
@@ -74,6 +83,7 @@ data:
         enabled: true
         fields:
           - name
+        picture: picture
       permissions:
         read:
           - known
@@ -182,10 +192,10 @@ data:
                             - type: RelatedList
                               xs: 12
                               id: khasymfk
-                              title: Sales
-                              object: crm-sales
-                              field: crm-products
-                              displayfields: people,price,paid
+                              title: Orders
+                              object: crm-orders
+                              field: products
+                              displayfields: person,price,paid
                               valueCopyFields: price=price
                               onlyVisibleWithResults: false
                               displayCard: true
