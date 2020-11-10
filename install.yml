@@ -216,171 +216,171 @@ data:
             - name
             - available
             - sold
-  # Orders
-  crm-orders:
-    key: crm-orders
-    name: Order
-    name_plural: Orders
-    linked: true
-    linkedModels:
-      - label: Product
-        value: crm-products
-      - label: Person
-        value: people
-    primary: name
-    icon: FaShoppingCart
-    preview:
-      fields:
-        - name
-        - products
-        - person
-        - price
-      enabled: true
-    permissions:
-      read:
-        - known
-      create:
-        - known
-      modifyOwn:
-        - known
-      write:
-        - known
-      delete:
-        - known
-      deleteOwn:
-        - known
-      archive:
-        - known
-      archiveOwn:
-        - known
-    actions:
-      create:
-        layout: create
-        type: create
-    overviews:
-      default:
+    # Orders
+    crm-orders:
+      key: crm-orders
+      name: Order
+      name_plural: Orders
+      linked: true
+      linkedModels:
+        - label: Product
+          value: crm-products
+        - label: Person
+          value: people
+      primary: name
+      icon: FaShoppingCart
+      preview:
         fields:
           - name
           - products
           - person
-        buttons:
-          - create
-        actions:
-          - delete
-    layouts:
-      default:
-        layout:
-          - type: AnimationContainer
-            xs: 12
-            id: kf2r51ws
-            items:
-              - type: GridContainer
-                xs: 12
-                id: kg6o8d15
-                items:
-                  - type: GridItem
-                    xs: 12
-                    id: kg6o8fgk
-                    md: 9
-                    items:
-                      - type: AnimationItem
-                        xs: 12
-                        id: kf2r5375
-                        items:
-                          - type: Paper
-                            xs: 12
-                            id: kf2r56lv
-                            title: Sale
-                            withBigMargin: true
-                            key: default
-                            items:
-                              - type: Field
-                                id: 3c5meakg285qlt
-                                field: products
-                              - type: Field
-                                id: 3c5meakg285qlu
-                                field: person
-                              - type: Field
-                                xs: 12
-                                id: kg6mi8nq
-                                field: price
-                              - type: Field
-                                xs: 12
-                                id: kganfq71
-                                field: paid
-                  - type: GridItem
-                    xs: 12
-                    id: kg6o8nb4
-                    md: 3
-                    items:
-                      - type: AnimationItem
-                        xs: 12
-                        id: kg6o9472
-                        items:
-                          - type: Paper
-                            xs: 12
-                            id: kg6o986w
-                            title: Files
-                            withBigMargin: true
-                            md: 3
-                            items:
-                              - type: Attachments
-                                xs: 12
-                                id: kg6ob8qs
-                                key: receipts
-                                allowUpload: false
-        buttons:
-          - delete
-      create:
-        layout:
-          - type: Field
-            id: 3c5meakg285qlt
-            field: products
-          - type: Field
-            id: 3c5meakg285qlu
-            field: person
-          - type: Field
-            xs: 12
-            id: kg6mgjmi
-            field: price
-          - type: Field
-            xs: 12
-            id: kganfxxg
-            field: paid
-        buttons: []
-    fields:
-      name:
-        name: Name
-        type: auto_name
-        typeArgs:
-          prefix: ORDER
-          mode: increment
-      products:
-        name: Products
-        type: relationship_m
-        required: true
-        typeArgs:
-          relationshipTo: crm-products
-      person:
-        name: Person
-        type: relationship
-        required: true
-        typeArgs:
-          relationshipTo: people
-      price:
-        name: Price
-        type: input
-        typeArgs:
-          type: number
-          numberType: currency
-      paid:
-        name: Paid
-        type: boolean
-        default: "true"
-    app: crm
-    indexed: false
-    extensions:
-      document_generator:
-        name: Document generator
-        active: true
+          - price
+        enabled: true
+      permissions:
+        read:
+          - known
+        create:
+          - known
+        modifyOwn:
+          - known
+        write:
+          - known
+        delete:
+          - known
+        deleteOwn:
+          - known
+        archive:
+          - known
+        archiveOwn:
+          - known
+      actions:
+        create:
+          layout: create
+          type: create
+      overviews:
+        default:
+          fields:
+            - name
+            - products
+            - person
+          buttons:
+            - create
+          actions:
+            - delete
+      layouts:
+        default:
+          layout:
+            - type: AnimationContainer
+              xs: 12
+              id: kf2r51ws
+              items:
+                - type: GridContainer
+                  xs: 12
+                  id: kg6o8d15
+                  items:
+                    - type: GridItem
+                      xs: 12
+                      id: kg6o8fgk
+                      md: 9
+                      items:
+                        - type: AnimationItem
+                          xs: 12
+                          id: kf2r5375
+                          items:
+                            - type: Paper
+                              xs: 12
+                              id: kf2r56lv
+                              title: Sale
+                              withBigMargin: true
+                              key: default
+                              items:
+                                - type: Field
+                                  id: 3c5meakg285qlt
+                                  field: products
+                                - type: Field
+                                  id: 3c5meakg285qlu
+                                  field: person
+                                - type: Field
+                                  xs: 12
+                                  id: kg6mi8nq
+                                  field: price
+                                - type: Field
+                                  xs: 12
+                                  id: kganfq71
+                                  field: paid
+                    - type: GridItem
+                      xs: 12
+                      id: kg6o8nb4
+                      md: 3
+                      items:
+                        - type: AnimationItem
+                          xs: 12
+                          id: kg6o9472
+                          items:
+                            - type: Paper
+                              xs: 12
+                              id: kg6o986w
+                              title: Files
+                              withBigMargin: true
+                              md: 3
+                              items:
+                                - type: Attachments
+                                  xs: 12
+                                  id: kg6ob8qs
+                                  key: receipts
+                                  allowUpload: false
+          buttons:
+            - delete
+        create:
+          layout:
+            - type: Field
+              id: 3c5meakg285qlt
+              field: products
+            - type: Field
+              id: 3c5meakg285qlu
+              field: person
+            - type: Field
+              xs: 12
+              id: kg6mgjmi
+              field: price
+            - type: Field
+              xs: 12
+              id: kganfxxg
+              field: paid
+          buttons: []
+      fields:
+        name:
+          name: Name
+          type: auto_name
+          typeArgs:
+            prefix: ORDER
+            mode: increment
+        products:
+          name: Products
+          type: relationship_m
+          required: true
+          typeArgs:
+            relationshipTo: crm-products
+        person:
+          name: Person
+          type: relationship
+          required: true
+          typeArgs:
+            relationshipTo: people
+        price:
+          name: Price
+          type: input
+          typeArgs:
+            type: number
+            numberType: currency
+        paid:
+          name: Paid
+          type: boolean
+          default: "true"
+      app: crm
+      indexed: false
+      extensions:
+        document_generator:
+          name: Document generator
+          active: true
   objects:
