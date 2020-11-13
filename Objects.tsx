@@ -3,7 +3,7 @@ import { AppContextType } from "../../Utils/Types";
 
 const objectSettingsMap = {
   products: { modelId: "crm-products" },
-  customers: { modelId: "people" },
+  customers: { modelId: "people", props: { disableLists: true, applyList: 'customers' } },
   orders: { modelId: "crm-orders" },
 };
 
@@ -20,6 +20,7 @@ const AppActionObject: React.FC<{ action; context: AppContextType }> = ({
       context={context}
       modelId={objectSettings.modelId}
       baseUrl={`/crm/${action}`}
+      {...objectSettings.props || {}}
     />
   );
 };
