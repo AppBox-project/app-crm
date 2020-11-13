@@ -63,6 +63,8 @@ data:
         picture:
           name: Picture
           type: picture
+          typeArgs:
+            asBanner: true
         price:
           name: Price
           type: input
@@ -335,6 +337,7 @@ data:
                                   allowUpload: false
           buttons:
             - delete
+            - document_generator-configure
         create:
           layout:
             - type: Field
