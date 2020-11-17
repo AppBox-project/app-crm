@@ -15,14 +15,14 @@ store-script:
       g: 102
       b: 201
   steps:
-    - action: createModel
-      required: true
-      locked: false
-      model: crm-products
-    - action: createModel
-      required: true
-      locked: false
-      model: crm-orders
+    #- action: createModel
+    #  required: true
+    #  locked: false
+    #  model: crm-products
+    #- action: createModel
+    #  required: true
+    #  locked: false
+    #  model: crm-orders
     - action: registerSystemValues
       values:
         people:

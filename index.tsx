@@ -1,6 +1,7 @@
 import FourOhFour from "../../Components/FourOhFour";
 import {
   FaDashcube,
+  FaFileInvoiceDollar,
   FaPeopleCarry,
   FaShoppingCart,
   FaUserTie,
@@ -39,10 +40,16 @@ export default class App {
           group: "Products",
         },
         {
+          key: "sales",
+          label: "Sales",
+          component: Objects,
+          icon: FaShoppingCart,
+          group: "Products",
+        }, {
           key: "orders",
           label: "Orders",
           component: Objects,
-          icon: FaShoppingCart,
+          icon: FaFileInvoiceDollar,
           group: "Products",
         },
         {

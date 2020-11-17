@@ -5,6 +5,7 @@ const objectSettingsMap = {
   products: { modelId: "crm-products" },
   customers: { modelId: "people", props: { disableLists: true, applyList: 'customers' } },
   orders: { modelId: "crm-orders" },
+  sales: { modelId: "crm-sales" },
 };
 
 const AppActionObject: React.FC<{ action; context: AppContextType }> = ({
