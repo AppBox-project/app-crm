@@ -21,6 +21,7 @@ const AppActionObject: React.FC<{ action; context: AppContextType }> = ({
       context={context}
       modelId={objectSettings.modelId}
       baseUrl={`/crm/${action}`}
+      style={{ paddingBottom: 50 }}
       {...objectSettings.props || {}}
     />
   );
