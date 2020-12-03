@@ -7,38 +7,37 @@ versions:
 # Install scripts
 ## Store
 store-script:
-  steps:
-    - action: createModel
-      model: crm-products
-    - action: createModel
-      model: crm-orders
-    - action: createModel
-      model: crm-sales
-    - action: registerSystemValues
-      values:
-        people:
-          types:
-            - label: Customer
-              key: customer
-              withList: true
-              listName: Customers
-            - label: Supplier
-              key: supplier
-              withList: true
-              listName: Suppliers
-    - action: insertObjects
-    - action: installClient
-      folder: Client
-    - compile
-    - action: registerApp
-      info:
-        name: Store CRM
-        icon: FaCashRegister
-        color:
-          r: 4
-          g: 102
-          b: 201
-    - cleanUp
+  - action: createModel
+    model: crm-products
+  - action: createModel
+    model: crm-orders
+  - action: createModel
+    model: crm-sales
+  - action: registerSystemValues
+    values:
+      people:
+        types:
+          - label: Customer
+            key: customer
+            withList: true
+            listName: Customers
+          - label: Supplier
+            key: supplier
+            withList: true
+            listName: Suppliers
+  - action: insertObjects
+  - action: installClient
+    folder: Client
+  - compile
+  - action: registerApp
+    info:
+      name: Store CRM
+      icon: FaCashRegister
+      color:
+        r: 4
+        g: 102
+        b: 201
+  - cleanUp
 
 # Data to load into the system
 data:
