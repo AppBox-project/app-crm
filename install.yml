@@ -7,13 +7,6 @@ versions:
 # Install scripts
 ## Store
 store-script:
-  info:
-    name: Store CRM
-    icon: FaCashRegister
-    color:
-      r: 4
-      g: 102
-      b: 201
   steps:
     - action: createModel
       model: crm-products
@@ -34,8 +27,18 @@ store-script:
               withList: true
               listName: Suppliers
     - action: insertObjects
-  post-install:
-    - registerApp
+    - action: installClient
+      folder: Client
+    - compile
+    - action: registerApp
+      info:
+        name: Store CRM
+        icon: FaCashRegister
+        color:
+          r: 4
+          g: 102
+          b: 201
+    - cleanUp
 
 # Data to load into the system
 data:
